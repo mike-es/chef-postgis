@@ -7,6 +7,8 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.2.4'
 
 depends 'apt'
+depends 'yum'
 depends 'postgresql'
 
 supports 'ubuntu'
+supports 'centos'

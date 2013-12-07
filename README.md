@@ -9,16 +9,19 @@ The postgis cookbook installs and configures the Postgis Postgresql extension an
 ## Platform:
 
 * Ubuntu
+* CentOS
 
 ## Cookbooks:
 
 * apt
+* yum
 * postgresql
 
 # Attributes
 
 * `node['postgis']['template_name']` - Postgis Template Database: The name of the gis database template. Set to nil to disable the creation of the template. Defaults to `template_postgis`.
 * `node['postgis']['locale']` - Postgis Template locale: The locale of the database. Defaults to `en_US.utf8`.
+* `node['postgis']['packages']` - An array of Postgis packages to install. Defaults depend on platform.
 
 # Recipes
 

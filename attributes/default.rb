@@ -16,3 +16,13 @@
 default['postgis']['template_name'] = 'template_postgis'
 #<> Postgis Template locale: The locale of the database.
 default['postgis']['locale'] = 'en_US.utf8'
+
+case node['platform']
+when "ubuntu"
+    default['postgis']['packages'] = ['python-software-properties','postgresql-9.1-postgis2']
+when "rhel", "centos"
+    default['postgis']['packages'] = ['postgis']
+    if node['postgresql']['version'] >= '9.1'
+        default['postgis']['template_name'] = nil
+    end
+end
