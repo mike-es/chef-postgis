@@ -61,11 +61,11 @@ when "rhel", "centos"
   include_recipe "yum::epel"
 end
 
+include_recipe 'postgresql::server'
+
 node['postgis']['packages'].each do |pkg|
   package pkg
 end
-
-include_recipe 'postgresql::server'
 
 if node['postgis']['template_name']
   include_recipe 'postgis::_init_database_template'
